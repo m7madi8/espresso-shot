@@ -197,13 +197,11 @@ document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            // Calculate offset for fixed header
-            const headerHeight = document.querySelector('nav').offsetHeight;
-            // Add more space for longer sections to show all content
+            // Add some space for better visibility
             let extraSpace = 20;
             if (target.id === 'about') extraSpace = 120;
-            else if (target.id === 'menu') extraSpace = 100; // Show all filter buttons with more adjustment
-            const targetPosition = target.offsetTop - headerHeight + extraSpace;
+            else if (target.id === 'menu') extraSpace = 100;
+            const targetPosition = target.offsetTop + extraSpace;
             
             window.scrollTo({
                 top: targetPosition,
@@ -222,13 +220,11 @@ document.querySelectorAll('#mobile-menu a[href^="#"]').forEach(anchor => {
             // Close mobile menu immediately
             closeMobileMenu();
             
-            // Calculate offset for fixed header
-            const headerHeight = document.querySelector('nav').offsetHeight;
-            // Add more space for longer sections to show all content
+            // Add some space for better visibility
             let extraSpace = 20;
             if (target.id === 'about') extraSpace = 120;
-            else if (target.id === 'menu') extraSpace = 100; // Show all filter buttons with more adjustment
-            const targetPosition = target.offsetTop - headerHeight + extraSpace;
+            else if (target.id === 'menu') extraSpace = 100;
+            const targetPosition = target.offsetTop + extraSpace;
             
             // Scroll to target with proper offset
             window.scrollTo({
@@ -239,14 +235,7 @@ document.querySelectorAll('#mobile-menu a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Keep navbar always visible - no scroll effects
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('nav');
-    // Always keep navbar visible and fixed
-    navbar.style.opacity = '1';
-    navbar.style.transform = 'translateY(0)';
-    navbar.style.visibility = 'visible';
-});
+
 
 // View Menu Button - Smooth scroll to categories section
 document.addEventListener('DOMContentLoaded', function() {
@@ -255,10 +244,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (viewMenuBtn && categorySection) {
         viewMenuBtn.addEventListener('click', function() {
-            // Calculate offset for fixed header
-            const headerHeight = document.querySelector('nav').offsetHeight;
-            // Add more space for menu section to show all filter buttons with more adjustment
-            const targetPosition = categorySection.offsetTop - headerHeight + 100;
+            // Add some space for better visibility
+            const targetPosition = categorySection.offsetTop + 100;
             
             window.scrollTo({
                 top: targetPosition,
@@ -373,10 +360,9 @@ function scrollToCategory(categorySlug) {
     // Find the category element
     const categoryElement = document.querySelector(`[data-category="${categorySlug}"]`);
     if (categoryElement) {
-        // Calculate offset for fixed header and search results
-        const headerHeight = document.querySelector('nav').offsetHeight;
+        // Add some space for better visibility
         const searchResultsHeight = inlineSearchResults.classList.contains('hidden') ? 0 : inlineSearchResults.offsetHeight;
-        const targetPosition = categoryElement.offsetTop - headerHeight - searchResultsHeight + 20;
+        const targetPosition = categoryElement.offsetTop - searchResultsHeight + 20;
         
         // Smooth scroll to the category
         window.scrollTo({
