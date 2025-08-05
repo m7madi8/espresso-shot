@@ -1078,6 +1078,66 @@ a[href*="tel:"].px-6::before {
 
 a[href*="tel:"].px-6:hover::before {
     left: 100%;
+}
+
+/* Fixed colors for Call Us button in mobile menu with smooth hover effect */
+.mobile-nav-link[href*="tel:"] {
+    background-color: #2C2C2C !important;
+    color: white !important;
+    transition: all 0.3s ease !important;
+}
+
+.mobile-nav-link[href*="tel:"]:hover {
+    background-color: white !important;
+    color: #2C2C2C !important;
+    transform: none !important;
+}
+
+.mobile-nav-link[href*="tel:"]:active {
+    background-color: white !important;
+    color: #2C2C2C !important;
+    transform: none !important;
+}
+
+.mobile-nav-link[href*="tel:"]:focus {
+    background-color: white !important;
+    color: #2C2C2C !important;
+    outline: none !important;
+}
+
+/* Remove the shine effect for mobile Call Us button */
+.mobile-nav-link[href*="tel:"]::before {
+    display: none !important;
+}
+
+.mobile-nav-link[href*="tel:"]:hover::before {
+    display: none !important;
+}
+
+/* Dynamic color for the icon inside Call Us button */
+.mobile-nav-link[href*="tel:"] svg {
+    color: white !important;
+    stroke: white !important;
+    fill: none !important;
+    transition: all 0.3s ease !important;
+}
+
+.mobile-nav-link[href*="tel:"]:hover svg {
+    color: #2C2C2C !important;
+    stroke: #2C2C2C !important;
+    fill: none !important;
+}
+
+.mobile-nav-link[href*="tel:"]:active svg {
+    color: #2C2C2C !important;
+    stroke: #2C2C2C !important;
+    fill: none !important;
+}
+
+.mobile-nav-link[href*="tel:"]:focus svg {
+    color: #2C2C2C !important;
+    stroke: #2C2C2C !important;
+    fill: none !important;
 } 
 
 /* Mobile Menu Items Reverse Animation (for closing) */
