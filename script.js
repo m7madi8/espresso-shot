@@ -606,17 +606,29 @@ function startEntranceAnimations() {
     });
 }
 
-// Initialize scroll-triggered animations
+// Enhanced scroll-triggered animations with fade out
 function initializeScrollEffects() {
     const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: [0, 0.1, 0.5, 1.0],
+        rootMargin: '0px 0px -100px 0px'
     };
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
+            const element = entry.target;
+            
             if (entry.isIntersecting) {
-                entry.target.classList.add('animate-in');
+                // Element is visible - animate in
+                element.classList.add('animate-in');
+                element.style.opacity = '1';
+                element.style.transform = 'translateY(0) scale(1)';
+                element.style.filter = 'blur(0)';
+            } else {
+                // Element is not visible - animate out
+                element.classList.remove('animate-in');
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(50px) scale(0.95)';
+                element.style.filter = 'blur(2px)';
             }
         });
     }, observerOptions);
@@ -1868,4 +1880,42 @@ document.addEventListener('DOMContentLoaded', () => {
             }, index * 100);
         });
     }
+}); 
+
+// Add animation classes to elements automatically
+function addAnimationClasses() {
+    // Add animation classes to table rows
+    const tableRows = document.querySelectorAll('table tbody tr');
+    tableRows.forEach((row, index) => {
+        row.classList.add('animate-on-scroll', 'fade-up');
+        row.style.animationDelay = `${index * 0.1}s`;
+    });
+    
+    // Add animation classes to menu categories
+    const menuCategories = document.querySelectorAll('.menu-category');
+    menuCategories.forEach((category, index) => {
+        if (!category.classList.contains('animate-on-scroll')) {
+            category.classList.add('animate-on-scroll', 'fade-up');
+            category.style.animationDelay = `${index * 0.2}s`;
+        }
+    });
+    
+    // Add animation classes to feature items
+    const featureItems = document.querySelectorAll('.feature-item');
+    featureItems.forEach((item, index) => {
+        item.classList.add('animate-on-scroll', 'fade-left');
+        item.style.animationDelay = `${index * 0.1}s`;
+    });
+    
+    // Add animation classes to social links
+    const socialLinks = document.querySelectorAll('.social-link');
+    socialLinks.forEach((link, index) => {
+        link.classList.add('animate-on-scroll', 'zoom-in');
+        link.style.animationDelay = `${index * 0.2}s`;
+    });
+}
+
+// Call the function after DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    addAnimationClasses();
 }); 

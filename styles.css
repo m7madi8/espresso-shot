@@ -741,16 +741,43 @@ a[href*="tel:"]:active {
     animation: glow 2s ease-in-out infinite alternate;
 }
 
-/* Scroll-triggered animations */
+/* Enhanced Scroll-triggered animations */
 .animate-on-scroll {
     opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease;
+    transform: translateY(50px) scale(0.95);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    filter: blur(2px);
 }
 
 .animate-on-scroll.animate-in {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+}
+
+/* Different animation types for variety */
+.animate-on-scroll.fade-left {
+    transform: translateX(-50px) scale(0.95);
+}
+
+.animate-on-scroll.fade-right {
+    transform: translateX(50px) scale(0.95);
+}
+
+.animate-on-scroll.fade-up {
+    transform: translateY(50px) scale(0.95);
+}
+
+.animate-on-scroll.fade-down {
+    transform: translateY(-50px) scale(0.95);
+}
+
+.animate-on-scroll.zoom-in {
+    transform: scale(0.8);
+}
+
+.animate-on-scroll.rotate-in {
+    transform: rotate(-10deg) scale(0.9);
 }
 
 /* Parallax effects */
@@ -2743,5 +2770,78 @@ html::-webkit-scrollbar-corner {
     /* Prevent accidental activation during scroll */
     .category-btn {
         -webkit-tap-highlight-color: transparent !important;
+    }
+}
+
+/* ===== ENHANCED TABLE ROW ANIMATIONS ===== */
+
+/* Table row animations */
+table tbody tr.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    filter: blur(1px);
+}
+
+table tbody tr.animate-on-scroll.animate-in {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+}
+
+/* Staggered animation for table rows */
+table tbody tr.animate-on-scroll:nth-child(1) { animation-delay: 0.1s; }
+table tbody tr.animate-on-scroll:nth-child(2) { animation-delay: 0.2s; }
+table tbody tr.animate-on-scroll:nth-child(3) { animation-delay: 0.3s; }
+table tbody tr.animate-on-scroll:nth-child(4) { animation-delay: 0.4s; }
+table tbody tr.animate-on-scroll:nth-child(5) { animation-delay: 0.5s; }
+table tbody tr.animate-on-scroll:nth-child(6) { animation-delay: 0.6s; }
+table tbody tr.animate-on-scroll:nth-child(7) { animation-delay: 0.7s; }
+table tbody tr.animate-on-scroll:nth-child(8) { animation-delay: 0.8s; }
+table tbody tr.animate-on-scroll:nth-child(9) { animation-delay: 0.9s; }
+table tbody tr.animate-on-scroll:nth-child(10) { animation-delay: 1.0s; }
+
+/* ===== IMPROVED SCROLL ANIMATION SYSTEM ===== */
+
+/* Enhanced scroll animations with better performance */
+.animate-on-scroll {
+    will-change: transform, opacity, filter;
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* Smooth transitions for all animated elements */
+.animate-on-scroll,
+.animate-on-scroll.animate-in {
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Performance optimizations */
+.animate-on-scroll {
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}
+
+/* Mobile optimizations for scroll animations */
+@media (max-width: 768px) {
+    .animate-on-scroll {
+        transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    
+    table tbody tr.animate-on-scroll {
+        transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .animate-on-scroll,
+    .animate-on-scroll.animate-in,
+    table tbody tr.animate-on-scroll {
+        transition: none !important;
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
     }
 }
