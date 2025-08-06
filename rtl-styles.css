@@ -1,0 +1,303 @@
+/* RTL Styles for Arabic Language */
+
+/* RTL Direction Support */
+[dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+}
+
+/* RTL Navigation */
+[dir="rtl"] nav .flex {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .nav-links {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .mobile-menu {
+    right: auto;
+    left: 0;
+}
+
+/* RTL Buttons and Cards */
+[dir="rtl"] .btn {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .card {
+    text-align: right;
+}
+
+/* RTL Grid Layouts */
+[dir="rtl"] .grid {
+    direction: rtl;
+}
+
+/* RTL Margins and Paddings */
+[dir="rtl"] .ml-auto {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+}
+
+[dir="rtl"] .mr-auto {
+    margin-right: 0 !important;
+    margin-left: auto !important;
+}
+
+[dir="rtl"] .ml-4 {
+    margin-left: 0 !important;
+    margin-right: 1rem !important;
+}
+
+[dir="rtl"] .mr-4 {
+    margin-right: 0 !important;
+    margin-left: 1rem !important;
+}
+
+/* RTL Text Alignment */
+[dir="rtl"] .text-left {
+    text-align: right !important;
+}
+
+[dir="rtl"] .text-right {
+    text-align: left !important;
+}
+
+/* RTL Flexbox */
+[dir="rtl"] .flex-row {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .justify-start {
+    justify-content: flex-end;
+}
+
+[dir="rtl"] .justify-end {
+    justify-content: flex-start;
+}
+
+/* RTL Language Switcher */
+.lang-switcher {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 600;
+    min-width: 80px;
+    text-align: center;
+}
+
+[dir="rtl"] .lang-switcher {
+    margin-left: 0;
+    margin-right: 1rem;
+}
+
+/* RTL Menu Categories */
+[dir="rtl"] .category-btn {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 600;
+}
+
+/* RTL Form Elements */
+[dir="rtl"] input,
+[dir="rtl"] textarea {
+    text-align: right;
+    direction: rtl;
+}
+
+[dir="rtl"] .form-group {
+    text-align: right;
+}
+
+/* RTL Icons and Images */
+[dir="rtl"] .icon {
+    margin-left: 0;
+    margin-right: 0.5rem;
+}
+
+/* RTL Animations */
+[dir="rtl"] .slide-in-left {
+    animation: slideInRight 0.5s ease-out;
+}
+
+[dir="rtl"] .slide-in-right {
+    animation: slideInLeft 0.5s ease-out;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* RTL Mobile Menu */
+[dir="rtl"] .mobile-menu-toggle {
+    margin-left: 0;
+    margin-right: 1rem;
+}
+
+/* RTL Footer */
+[dir="rtl"] .footer-content {
+    flex-direction: row-reverse;
+}
+
+/* RTL Contact Form */
+[dir="rtl"] .contact-form {
+    text-align: right;
+}
+
+[dir="rtl"] .contact-form input,
+[dir="rtl"] .contact-form textarea {
+    text-align: right;
+    direction: rtl;
+}
+
+/* RTL About Section */
+[dir="rtl"] .about-content {
+    text-align: right;
+}
+
+/* RTL Hero Section */
+[dir="rtl"] .hero-content {
+    text-align: right;
+}
+
+/* RTL Menu Grid */
+[dir="rtl"] .menu-category h2 {
+    text-align: right;
+}
+
+[dir="rtl"] .menu-item {
+    text-align: right;
+}
+
+/* RTL Pricing */
+[dir="rtl"] .price {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+/* RTL Loading Animation */
+[dir="rtl"] .loader {
+    direction: rtl;
+}
+
+/* RTL Scroll Animations */
+[dir="rtl"] .fade-in-left {
+    animation: fadeInRight 1s ease-out;
+}
+
+[dir="rtl"] .fade-in-right {
+    animation: fadeInLeft 1s ease-out;
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* RTL Responsive Design */
+@media (max-width: 768px) {
+    [dir="rtl"] .mobile-menu {
+        transform: translateX(-100%);
+    }
+    
+    [dir="rtl"] .mobile-menu.active {
+        transform: translateX(0);
+    }
+}
+
+/* Arabic Font Support */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
+
+[dir="rtl"] body {
+    font-family: 'Cairo', sans-serif;
+}
+
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6 {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 600;
+}
+
+/* RTL Number Formatting */
+[dir="rtl"] .price {
+    direction: ltr;
+    text-align: left;
+}
+
+/* RTL Social Media Icons */
+[dir="rtl"] .social-icons {
+    flex-direction: row-reverse;
+}
+
+/* RTL Contact Info */
+[dir="rtl"] .contact-info {
+    text-align: right;
+}
+
+/* RTL Opening Hours */
+[dir="rtl"] .opening-hours {
+    text-align: right;
+}
+
+/* RTL Special Offers */
+[dir="rtl"] .special-offer {
+    text-align: right;
+}
+
+/* RTL Testimonials */
+[dir="rtl"] .testimonial {
+    text-align: right;
+}
+
+/* RTL Newsletter */
+[dir="rtl"] .newsletter {
+    text-align: right;
+}
+
+/* RTL Search Bar */
+[dir="rtl"] .search-bar {
+    direction: rtl;
+}
+
+[dir="rtl"] .search-bar input {
+    text-align: right;
+    padding-right: 1rem;
+    padding-left: 3rem;
+}
+
+[dir="rtl"] .search-bar .search-icon {
+    right: auto;
+    left: 1rem;
+} 
