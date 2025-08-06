@@ -2845,3 +2845,122 @@ table tbody tr.animate-on-scroll:nth-child(10) { animation-delay: 1.0s; }
         filter: none !important;
     }
 }
+
+/* Fix hero logo hover issues - prevent disappearing */
+.hero-logo.logo-shine-container {
+    transform: none !important;
+    transition: none !important;
+    overflow: visible !important;
+}
+
+.hero-logo.logo-shine-container:hover {
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+}
+
+.hero-logo.logo-shine-container img {
+    transform: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.hero-logo.logo-shine-container:hover img {
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Fix hero logo hover issues within media query */
+@media (hover: hover) {
+    .hero-logo.logo-shine-container:hover {
+        transform: none !important;
+        animation: none !important;
+        transition: none !important;
+    }
+    
+    .hero-logo.logo-shine-container:hover img {
+        transform: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+}
+
+/* Enhanced Logo Effects */
+
+/* ===== منع التمرير الداخلي - التمرير الافتراضي فقط ===== */
+
+/* منع التمرير الداخلي في جميع الأقسام */
+section, div, .container, .content-wrapper, #main-content {
+    overflow: hidden !important;
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+}
+
+/* منع التمرير في نتائج البحث */
+#inline-search-results-content {
+    overflow: hidden !important;
+    overflow-y: hidden !important;
+    max-height: none !important;
+    height: auto !important;
+}
+
+/* منع التمرير في القوائم */
+.overflow-y-auto, .overflow-x-auto {
+    overflow: hidden !important;
+    overflow-y: hidden !important;
+    overflow-x: hidden !important;
+}
+
+/* منع التمرير في الجداول */
+table {
+    overflow: hidden !important;
+}
+
+/* منع التمرير في القوائم المنسدلة */
+#mobile-menu {
+    overflow: hidden !important;
+    overflow-y: hidden !important;
+}
+
+/* منع التمرير في جميع العناصر الداخلية */
+* {
+    overflow: hidden !important;
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+}
+
+/* الاحتفاظ بالتمرير الافتراضي للصفحة فقط */
+html, body {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+}
+
+/* منع التمرير في الأقسام المحددة */
+.hero-logo, .hero-description, .hero-buttons,
+.category-section, .menu-category, #about, footer {
+    overflow: hidden !important;
+}
+
+/* منع التمرير في الجداول والصفوف */
+tbody, tr, td, th {
+    overflow: hidden !important;
+}
+
+/* منع التمرير في الأزرار والعناصر التفاعلية */
+button, a, .category-btn, .nav-link, .mobile-nav-link {
+    overflow: hidden !important;
+}
+
+/* منع التمرير في اللوجو */
+.logo-shine-container {
+    overflow: hidden !important;
+}
+
+/* منع التمرير في جميع العناصر المخصصة */
+.custom-scrollbar, .scrollbar-hide, .dark-scrollbar {
+    overflow: hidden !important;
+}
+
+/* ===== نهاية منع التمرير الداخلي ===== */
